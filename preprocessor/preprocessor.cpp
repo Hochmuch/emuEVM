@@ -27,6 +27,7 @@ void preprocessing::Preprocessor::end() {
         throw preprocessing::PreprocessorError();
     }
     this->is_started = false;
+    exit(0);
 }
 
 void preprocessing::Preprocessor::push(long long value0) {

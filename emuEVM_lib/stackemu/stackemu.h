@@ -48,6 +48,8 @@ namespace stack {
         inline int getSize() const;
 
         inline T *getStack() const;
+
+        T getTopIndex() const;
     };
 
     template<typename T>
@@ -59,7 +61,7 @@ namespace stack {
     template<typename T>
     Stack<T>::Stack(const Stack<T> &other) : size(other.getSize()) {
         stack = new T[size];
-        top = other.getTop();
+        top = other.getTopIndex();
         for (int i = 0; i < top; i++) {
             stack[i] = other.getStack()[i];
         }
@@ -113,6 +115,11 @@ namespace stack {
             throw stack::EmptyStackPopError();
         }
         return stack[top];
+    }
+
+    template<typename T>
+    inline T Stack<T>::getTopIndex() const {
+        return top;
     }
 
     template<typename T>
